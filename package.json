@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/mertww0416/mert/issues"
   },
-  "homepage": "https://github.com/mertww0416/mert#readme"
+  "homepage": "https://github.com/mertww0416/mert#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-uglify": "^4.0.0"
+  },
+  "dependencies": {
+    "grunt-minified": "0.0.6"
+  }
 }
