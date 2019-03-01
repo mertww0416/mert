@@ -7,20 +7,23 @@ module.exports = function(grunt) {
                 }
             }
         },
-        minify: {
-            min: {
-                files: {
-                    'dist/add.js': ['minify/add.js']
-                }
+        cssmin: {
+            my_target: {
+                files: [{
+                    expand: true,
+                    cwd: 'css/',
+                    src: ['*.css', '!*.min.css'],
+                    dist: 'css/',
+                    ext: '.min.css'
+                }]
             }
         },
+
         browserify: {
-            dist: {
+            build: {
                 files: {
-                    'dist/add.js': ['minify/*.js']
-                },
-                options: {
-                    transform: ['coffeeify']
+                    src: 'dist/*.js',
+                    dest: 'minify/add.js'
                 }
             }
         }
@@ -28,7 +31,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-minify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-browserify');
-    grunt.registerTask('default', ['uglify', 'minify', 'browserify']);
+    grunt.registerTask('default', ['uglify', 'cssmin', 'browserify']);
 };
